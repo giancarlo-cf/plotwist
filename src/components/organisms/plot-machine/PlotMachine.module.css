@@ -1,0 +1,17 @@
+.plot_machine {
+  display: flex;
+  flex-direction: column;
+}
+
+.plot_toolbar {
+  display: flex;
+  flex-direction: row;
+}
+
+.plot_section {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}

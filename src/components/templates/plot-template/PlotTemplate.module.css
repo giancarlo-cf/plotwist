@@ -1,0 +1,36 @@
+.grid {
+  flex-grow: 1;
+}
+
+.plot_machine {
+  grid-column: 2 / span 10;
+  height: 100%;
+}
+
+/* Small tablets and larger mobile devices (481px - 768px) */
+@media (min-width: 481px) {
+  .plot_machine {
+    grid-column: 3 / span 8;
+  }
+}
+
+/* Tablets and small laptops (769px - 1024px) */
+@media (min-width: 769px) {
+  .plot_machine {
+    grid-column: 3 / span 8;
+  }
+}
+
+/* Large desktops and high-resolution screens (1025px and up) */
+@media (min-width: 1025px) {
+  .plot_machine {
+    grid-column: 4 / span 6;
+  }
+}
+
+/* Extra-large screens (1440px and up) */
+@media (min-width: 1440px) {
+  .plot_machine {
+    grid-column: 4 / span 6;
+  }
+}
