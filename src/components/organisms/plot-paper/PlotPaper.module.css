@@ -1,0 +1,13 @@
+.paper_border {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: calc(100% + 5px);
+  height: calc(100% + 5px);
+  outline: 1px solid green;
+  outline-offset: -4px;
+}
+/* .paper_border:hover {
+  cursor: pointer;
+} */

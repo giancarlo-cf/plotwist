@@ -4,7 +4,7 @@ import PlotPaper from '@components/organisms/plot-paper/PlotPaper';
 import PlotMachine from '@components/organisms/plot-machine/PlotMachine';
 import React from 'react';
 
-interface Size {
+export interface Size {
   width: number;
   height: number;
 }
@@ -18,7 +18,10 @@ function PlotTemplate() {
   return (
     <Grid className={styles.grid}>
       <PlotMachine className={styles.plot_machine}>
-        <PlotPaper style={{ ...paperSize }}></PlotPaper>
+        <PlotPaper
+          style={{ ...paperSize }}
+          setPaperSize={setPaperSize}
+        ></PlotPaper>
       </PlotMachine>
     </Grid>
   );
