@@ -18,7 +18,8 @@ type CursorPosition =
   | 'topleft'
   | null;
 
-const OFFSET: number = 5;
+const BORDER_OFFSET: number = 5;
+const DOTS_OFFSET: number = 2;
 
 function PlotPaper({
   children,
@@ -87,20 +88,20 @@ function PlotPaper({
 
     let position: string = '';
 
-    if (-OFFSET <= relativeY && relativeY <= OFFSET) {
+    if (-BORDER_OFFSET <= relativeY && relativeY <= BORDER_OFFSET) {
       position += 'top';
     } else {
       const distanceY: number = relativeY - paperRect.height;
-      if (OFFSET >= distanceY && distanceY >= -OFFSET) {
+      if (BORDER_OFFSET >= distanceY && distanceY >= -BORDER_OFFSET) {
         position += 'bottom';
       }
     }
 
-    if (-OFFSET <= relativeX && relativeX <= OFFSET) {
+    if (-BORDER_OFFSET <= relativeX && relativeX <= BORDER_OFFSET) {
       position += 'left';
     } else {
       const distanceX: number = relativeX - paperRect.width;
-      if (OFFSET >= distanceX && distanceX >= -OFFSET) {
+      if (BORDER_OFFSET >= distanceX && distanceX >= -BORDER_OFFSET) {
         position += 'right';
       }
     }
@@ -219,8 +220,30 @@ function PlotPaper({
           onMouseUp={onPaperBorderMouseUp}
           className={styles.paper_border}
           style={{ outlineStyle: resizeMode ? 'dashed' : 'solid' }}
-        />
+        >
+          {resizeMode && (
+            <div className={styles.paper_resize_dots}>
+              <div
+                className={styles.paper_resize_dot}
+                style={{ top: -DOTS_OFFSET, right: -DOTS_OFFSET }}
+              />
+              <div
+                className={styles.paper_resize_dot}
+                style={{ top: -DOTS_OFFSET, left: -DOTS_OFFSET }}
+              />
+              <div
+                className={styles.paper_resize_dot}
+                style={{ bottom: -DOTS_OFFSET, right: -DOTS_OFFSET }}
+              />
+              <div
+                className={styles.paper_resize_dot}
+                style={{ bottom: -DOTS_OFFSET, left: -DOTS_OFFSET }}
+              />
+            </div>
+          )}
+        </div>
       )}
+
       {children}
     </Paper>
   );

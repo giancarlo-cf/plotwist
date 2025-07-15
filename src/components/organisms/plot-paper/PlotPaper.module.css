@@ -8,6 +8,16 @@
   outline: 1px solid green;
   outline-offset: -4px;
 }
-/* .paper_border:hover {
-  cursor: pointer;
-} */
+.paper_resize_dots {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+.paper_resize_dot {
+  position: absolute;
+  width: 10px;
+  aspect-ratio: 1 / 1;
+  border-radius: 100%;
+  background-color: white;
+  border: 1px solid green;
+}
