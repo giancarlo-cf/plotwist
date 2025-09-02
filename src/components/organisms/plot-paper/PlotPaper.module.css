@@ -3,10 +3,10 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: calc(100% + 5px);
-  height: calc(100% + 5px);
+  width: calc(100% + 6px);
+  height: calc(100% + 6px);
   outline: 1px solid green;
-  outline-offset: -4px;
+  outline-offset: -3px;
 }
 .paper_resize_dots {
   position: relative;

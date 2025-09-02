@@ -51,7 +51,6 @@ function PlotPaper({
   const [resizing, setResizing] = React.useState<boolean>(false);
 
   function getCursor(): string {
-    console.log(outlineHovered, cursorPosition);
     if (!outlineHovered) return '';
     switch (cursorPosition) {
       case 'top':
