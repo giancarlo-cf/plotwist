@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
 import styles from './PlotPaper.module.css';
 import Paper from '@components/atoms/paper/Paper';
-import type { Size } from '@components/templates/plot-template/PlotTemplate';
+import type { Size } from 'types/Size';
 
 interface PlotPaperProps extends React.HTMLAttributes<HTMLDivElement> {
   setPaperSize: React.Dispatch<React.SetStateAction<Size>>;
