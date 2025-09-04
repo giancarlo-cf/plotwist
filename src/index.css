@@ -6,6 +6,14 @@
   box-sizing: border-box;
 }
 
+/* Apply to everything */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+
 #root {
   flex-grow: 1;
   padding: 2.5rem;

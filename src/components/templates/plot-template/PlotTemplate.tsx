@@ -10,19 +10,18 @@ import type { Size } from 'types/Size';
 import type { PlotSettingsData } from 'types/PlotSettingsData';
 
 interface PlotTemplateProps {
+  size: Size;
+  updateSize: React.Dispatch<React.SetStateAction<Size>>;
   plotSettingsData: PlotSettingsData;
   setPlotSettingsData: React.Dispatch<React.SetStateAction<PlotSettingsData>>;
 }
 
 function PlotTemplate({
+  size,
+  updateSize,
   plotSettingsData,
   setPlotSettingsData,
 }: PlotTemplateProps) {
-  const [paperSize, setPaperSize] = React.useState<Size>({
-    width: 500,
-    height: 500,
-  });
-
   const [settingsOpen, setSettingsOpen] = React.useState<boolean>(false);
 
   function toggleSettings(): void {
@@ -41,11 +40,13 @@ function PlotTemplate({
           document.body
         )}
       <PlotMachine
+        size={size}
+        updateSize={updateSize}
         toggleSettings={toggleSettings}
         className={styles.plot_machine}
       >
-        <PlotPaper style={{ ...paperSize }} setPaperSize={setPaperSize}>
-          <Plot settings={plotSettingsData} size={paperSize} />
+        <PlotPaper style={{ ...size }} setPaperSize={updateSize}>
+          <Plot settings={plotSettingsData} size={size} />
         </PlotPaper>
       </PlotMachine>
     </Grid>

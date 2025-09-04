@@ -21,7 +21,7 @@ function Plot({ size, settings }: PlotProps) {
     lineWidth,
     showPoints,
     pointColor,
-    pointSize,
+    pointRadius,
   }: PlotSettingsData = settings;
   const { width, height } = size;
 
@@ -100,7 +100,7 @@ function Plot({ size, settings }: PlotProps) {
               key={index}
               cx={xScale(point.x)}
               cy={yScale(point.y)}
-              r={pointSize}
+              r={pointRadius}
             />
           ))}
         </g>

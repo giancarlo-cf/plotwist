@@ -143,50 +143,50 @@ function PlotPaper({
 
     switch (cursorPosition) {
       case 'top':
-        setPaperSize({
-          width: paperRect.width,
-          height: paperRect.height + relativeY * -1,
-        });
-        break;
+      setPaperSize({
+        width: Math.ceil(paperRect.width),
+        height: Math.ceil(paperRect.height + relativeY * -1),
+      });
+      break;
       case 'topright':
-        setPaperSize({
-          width: relativeX,
-          height: paperRect.height + relativeY * -1,
-        });
-        break;
+      setPaperSize({
+        width: Math.ceil(relativeX),
+        height: Math.ceil(paperRect.height + relativeY * -1),
+      });
+      break;
       case 'right':
-        setPaperSize({ width: relativeX, height: paperRect.height });
-        break;
+      setPaperSize({ width: Math.ceil(relativeX), height: Math.ceil(paperRect.height) });
+      break;
       case 'bottomright':
-        setPaperSize({
-          width: relativeX,
-          height: relativeY,
-        });
-        break;
+      setPaperSize({
+        width: Math.ceil(relativeX),
+        height: Math.ceil(relativeY),
+      });
+      break;
       case 'bottom':
-        setPaperSize({
-          width: paperRect.width,
-          height: relativeY,
-        });
-        break;
+      setPaperSize({
+        width: Math.ceil(paperRect.width),
+        height: Math.ceil(relativeY),
+      });
+      break;
       case 'bottomleft':
-        setPaperSize({
-          width: paperRect.width + relativeX * -1,
-          height: relativeY,
-        });
-        break;
+      setPaperSize({
+        width: Math.ceil(paperRect.width + relativeX * -1),
+        height: Math.ceil(relativeY),
+      });
+      break;
       case 'left':
-        setPaperSize({
-          width: paperRect.width + relativeX * -1,
-          height: paperRect.height,
-        });
-        break;
+      setPaperSize({
+        width: Math.ceil(paperRect.width + relativeX * -1),
+        height: Math.ceil(paperRect.height),
+      });
+      break;
       case 'topleft':
-        setPaperSize({
-          width: paperRect.width + relativeX * -1,
-          height: paperRect.height + relativeY * -1,
-        });
-        break;
+      setPaperSize({
+        width: Math.ceil(paperRect.width + relativeX * -1),
+        height: Math.ceil(paperRect.height + relativeY * -1),
+      });
+      break;
     }
   }
 

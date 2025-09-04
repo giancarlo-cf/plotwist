@@ -7,11 +7,24 @@
 .plot_toolbar {
   display: flex;
   flex-direction: row;
+  gap: 1rem;
   justify-content: center;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   width: auto;
   padding: 1rem;
   border-radius: 0.5rem;
+}
+
+.size_inputs {
+  display: flex;
+  flex-direction: row;
+  gap: 0.5rem;
+  align-items: center;
+
+  input {
+    width: 4rem;
+    padding: 0.25rem;
+  }
 }
 
 .plot_section {

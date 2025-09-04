@@ -12,5 +12,5 @@ export interface PlotSettingsData {
   lineTension: number;
   showPoints?: boolean;
   pointColor?: string;
-  pointSize?: number;
+  pointRadius?: number;
 }
