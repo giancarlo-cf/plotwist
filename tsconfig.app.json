@@ -26,7 +26,8 @@
     "baseUrl": "./",
     "paths": {
       "@components/*": ["src/components/*"],
-      "types/*": ["src/types/*"]
+      "types/*": ["src/types/*"],
+      "@handlers/*": ["src/handlers/*"]
     }
   },
   "include": ["src"]

@@ -66,7 +66,7 @@ function Plot({ size, settings }: PlotProps) {
   }, [xScale, yScale]);
 
   return (
-    <svg width={width} height={height}>
+    <svg id="plot" width={width} height={height}>
       {xScale && yScale && (
         <React.Fragment>
           <Axis

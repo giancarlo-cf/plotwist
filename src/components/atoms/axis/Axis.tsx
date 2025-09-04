@@ -69,6 +69,7 @@ function Axis({
                 ? `translateY(${yScale(0) + 10}px)`
                 : `translate(${xScale(0) + 10}px, 3.5px)`,
               userSelect: 'none',
+              fontFamily: 'system-ui, Avenir, Helvetica, Arial, sans-serif',
             }}
           >
             {value}
