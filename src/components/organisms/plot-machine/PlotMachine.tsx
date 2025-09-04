@@ -5,12 +5,14 @@ import type { Size } from 'types/Size';
 import SvgConverter from '@handlers/SvgConverter';
 interface PlotMachineProps extends React.HTMLAttributes<HTMLDivElement> {
   toggleSettings: () => void;
+  toggleData: () => void;
   size: Size;
   updateSize: React.Dispatch<React.SetStateAction<Size>>;
 }
 
 function PlotMachine({
   toggleSettings,
+  toggleData,
   size,
   updateSize,
   children,
@@ -23,14 +25,16 @@ function PlotMachine({
       return;
     }
 
-    SvgConverter.svgToPng(svgElement, size.width, size.height, 1).then((blob) => {
-      const url = URL.createObjectURL(blob);
-      const a = document.createElement('a');
-      a.href = url;
-      a.download = `plot-${Date.now()}.png`;
-      a.click();
-      URL.revokeObjectURL(url);
-    });
+    SvgConverter.svgToPng(svgElement, size.width, size.height, 1).then(
+      (blob) => {
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = `plot-${Date.now()}.png`;
+        a.click();
+        URL.revokeObjectURL(url);
+      }
+    );
   }
 
   return (
@@ -58,6 +62,9 @@ function PlotMachine({
             }
           />
         </div>
+        <Button iconButton onClick={toggleData}>
+          <FontAwesomeIcon icon="table" size="lg" />
+        </Button>
         <Button iconButton onClick={downloadPlotAsImage}>
           <FontAwesomeIcon icon="image" size="lg" />
         </Button>

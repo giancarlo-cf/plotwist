@@ -1,15 +1,17 @@
 import Axis from '@components/atoms/axis/Axis';
 import * as d3 from 'd3';
 import React, { useEffect, useState } from 'react';
+import type { PlotData } from 'types/PlotData';
 import type { PlotSettingsData } from 'types/PlotSettingsData';
 import type { Size } from 'types/Size';
 
 interface PlotProps {
   size: Size;
   settings: PlotSettingsData;
+  data: PlotData[];
 }
 
-function Plot({ size, settings }: PlotProps) {
+function Plot({ size, settings, data }: PlotProps) {
   const {
     padding,
     xAxisLowerBound,
@@ -34,12 +36,6 @@ function Plot({ size, settings }: PlotProps) {
   const [yScale, setYScale] = useState<d3.ScaleLinear<number, number> | null>(
     null
   );
-
-  const data = [
-    { x: 0, y: 0 },
-    { x: 1, y: 2 },
-    { x: 2, y: 8 },
-  ];
 
   useEffect(() => {
     const newXScale = d3.scaleLinear(

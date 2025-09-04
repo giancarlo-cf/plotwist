@@ -7,11 +7,16 @@
   height: 100%;
 }
 
-.plot_settings {
+.plot_settings,
+.plot_data {
   position: absolute;
   z-index: 10;
   width: 100%;
   height: 100%;
+}
+
+.plot_data {
+  right: 0;
 }
 
 /* Small tablets and larger mobile devices (481px - 768px) */
@@ -20,7 +25,8 @@
     grid-column: 3 / span 8;
   }
 
-  .plot_settings {
+  .plot_settings,
+  .plot_data {
     width: 75%;
   }
 }
@@ -31,7 +37,8 @@
     grid-column: 3 / span 8;
   }
 
-  .plot_settings {
+  .plot_settings,
+  .plot_data {
     width: 50%;
   }
 }
@@ -42,7 +49,8 @@
     grid-column: 4 / span 6;
   }
 
-  .plot_settings {
+  .plot_settings,
+  .plot_data {
     width: 33%;
   }
 }
@@ -53,7 +61,8 @@
     grid-column: 4 / span 6;
   }
 
-  .plot_settings {
+  .plot_settings,
+  .plot_data {
     width: 25%;
   }
 }

@@ -8,10 +8,14 @@ import PlotSettings from '@components/organisms/plot-settings/PlotSettings';
 import { createPortal } from 'react-dom';
 import type { Size } from 'types/Size';
 import type { PlotSettingsData } from 'types/PlotSettingsData';
+import PlotData from '@components/organisms/plot-data/PlotData';
+import type { PlotData as PlotDataType } from 'types/PlotData';
 
 interface PlotTemplateProps {
   size: Size;
   updateSize: React.Dispatch<React.SetStateAction<Size>>;
+  plotData: PlotDataType[];
+  setPlotData: React.Dispatch<React.SetStateAction<PlotDataType[]>>;
   plotSettingsData: PlotSettingsData;
   setPlotSettingsData: React.Dispatch<React.SetStateAction<PlotSettingsData>>;
 }
@@ -19,6 +23,8 @@ interface PlotTemplateProps {
 function PlotTemplate({
   size,
   updateSize,
+  plotData,
+  setPlotData,
   plotSettingsData,
   setPlotSettingsData,
 }: PlotTemplateProps) {
@@ -26,6 +32,11 @@ function PlotTemplate({
 
   function toggleSettings(): void {
     setSettingsOpen((prev: boolean) => !prev);
+  }
+
+  const [dataOpen, setDataOpen] = React.useState<boolean>(false);
+  function toggleData(): void {
+    setDataOpen((prev: boolean) => !prev);
   }
 
   return (
@@ -39,14 +50,24 @@ function PlotTemplate({
           />,
           document.body
         )}
+      {dataOpen &&
+        createPortal(
+          <PlotData
+            data={plotData}
+            setData={setPlotData}
+            className={styles.plot_data}
+          />,
+          document.body
+        )}
       <PlotMachine
         size={size}
         updateSize={updateSize}
         toggleSettings={toggleSettings}
+        toggleData={toggleData}
         className={styles.plot_machine}
       >
         <PlotPaper style={{ ...size }} setPaperSize={updateSize}>
-          <Plot settings={plotSettingsData} size={size} />
+          <Plot settings={plotSettingsData} data={plotData} size={size} />
         </PlotPaper>
       </PlotMachine>
     </Grid>

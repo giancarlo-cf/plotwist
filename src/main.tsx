@@ -2,10 +2,18 @@ import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import './index.css';
 import PlotPage from '@components/pages/plot-page/PlotPage';
-import { faImage, faSliders } from '@fortawesome/free-solid-svg-icons';
+import {
+  faDownLong,
+  faImage,
+  faMinus,
+  faPlus,
+  faSliders,
+  faTable,
+  faUpLong,
+} from '@fortawesome/free-solid-svg-icons';
 import { library } from '@fortawesome/fontawesome-svg-core';
 
-library.add(faSliders, faImage);
+library.add(faSliders, faImage, faTable, faPlus, faMinus, faUpLong, faDownLong);
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
