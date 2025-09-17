@@ -4,11 +4,18 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Button from '@components/atoms/button/Button';
 
 interface PlotDataProps extends React.HTMLAttributes<HTMLDivElement> {
+  toggle: () => void;
   data: PlotDataType[];
   setData: React.Dispatch<React.SetStateAction<PlotDataType[]>>;
 }
 
-function PlotData({ data, setData, className, ...props }: PlotDataProps) {
+function PlotData({
+  toggle,
+  data,
+  setData,
+  className,
+  ...props
+}: PlotDataProps) {
   function insertNewDataPointAt(index: number): void {
     const newData = [...data];
     newData.splice(index + 1, 0, { x: 0, y: 0 });
@@ -35,8 +42,12 @@ function PlotData({ data, setData, className, ...props }: PlotDataProps) {
     <div className={styles.plot_data + ' ' + className} {...props}>
       <div className={styles.plot_data_title}>
         <h2>Plot Data</h2>
+        <span style={{ flexGrow: 1 }} />
         <Button iconButton onClick={() => insertNewDataPointAt(0)}>
           <FontAwesomeIcon icon="plus" size="lg" />
+        </Button>
+        <Button iconButton onClick={toggle}>
+          <FontAwesomeIcon icon="xmark" size="lg" />
         </Button>
       </div>
       {data.map((point, index) => (

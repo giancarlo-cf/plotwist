@@ -5,28 +5,48 @@ import type { Size } from 'types/Size';
 import type { PlotData } from 'types/PlotData';
 
 function PlotPage() {
-  const [size, setSize] = React.useState<Size>({
-    width: 500,
-    height: 500,
-  });
+  const isMobile = window.matchMedia('(max-width: 600px)').matches;
+
+  const [size, setSize] = React.useState<Size>(
+    isMobile ? { width: 320, height: 320 } : { width: 500, height: 500 }
+  );
 
   const [plotSettingsData, setPlotSettingsData] =
-    React.useState<PlotSettingsData>({
-      padding: 20,
-      showGrid: true,
-      numberOfTicks: 10,
-      gridColor: '#BFBFBF',
-      xAxisLowerBound: -10,
-      xAxisUpperBound: 10,
-      yAxisLowerBound: -10,
-      yAxisUpperBound: 10,
-      lineColor: '#3534B3',
-      lineWidth: 2,
-      lineTension: 1.0,
-      showPoints: true,
-      pointColor: '#181854',
-      pointRadius: 4,
-    });
+    React.useState<PlotSettingsData>(
+      isMobile
+        ? {
+            padding: 10,
+            showGrid: true,
+            numberOfTicks: 10,
+            gridColor: '#BFBFBF',
+            xAxisLowerBound: -5,
+            xAxisUpperBound: 5,
+            yAxisLowerBound: -5,
+            yAxisUpperBound: 5,
+            lineColor: '#3534B3',
+            lineWidth: 2,
+            lineTension: 1.0,
+            showPoints: true,
+            pointColor: '#181854',
+            pointRadius: 3,
+          }
+        : {
+            padding: 20,
+            showGrid: true,
+            numberOfTicks: 10,
+            gridColor: '#BFBFBF',
+            xAxisLowerBound: -10,
+            xAxisUpperBound: 10,
+            yAxisLowerBound: -10,
+            yAxisUpperBound: 10,
+            lineColor: '#3534B3',
+            lineWidth: 2,
+            lineTension: 1.0,
+            showPoints: true,
+            pointColor: '#181854',
+            pointRadius: 4,
+          }
+    );
 
   const [plotData, setPlotData] = React.useState<PlotData[]>([]);
 

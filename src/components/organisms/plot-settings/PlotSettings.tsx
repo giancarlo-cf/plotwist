@@ -1,13 +1,17 @@
 import type { PlotSettingsData } from 'types/PlotSettingsData';
 import styles from './PlotSettings.module.css';
 import React from 'react';
+import Button from '@components/atoms/button/Button';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 interface PlotSettingsProps extends React.HTMLAttributes<HTMLDivElement> {
+  toggle: () => void;
   data: PlotSettingsData;
   setData: React.Dispatch<React.SetStateAction<PlotSettingsData>>;
 }
 
 function PlotSettings({
+  toggle,
   data,
   setData,
   className,
@@ -25,7 +29,12 @@ function PlotSettings({
 
   return (
     <div className={styles.plot_settings + ' ' + className} {...props}>
-      <h2>Plot Settings</h2>
+      <div className={styles.plot_settings_title}>
+        <h2>Plot Settings</h2>
+        <Button iconButton onClick={toggle}>
+          <FontAwesomeIcon icon="xmark" size="lg" />
+        </Button>
+      </div>
       <div className={styles.setting}>
         <label htmlFor="padding">Padding:</label>
         <input

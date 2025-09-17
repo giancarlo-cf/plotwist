@@ -44,6 +44,7 @@ function PlotTemplate({
       {settingsOpen &&
         createPortal(
           <PlotSettings
+            toggle={toggleSettings}
             data={plotSettingsData}
             setData={setPlotSettingsData}
             className={styles.plot_settings}
@@ -53,6 +54,7 @@ function PlotTemplate({
       {dataOpen &&
         createPortal(
           <PlotData
+            toggle={toggleData}
             data={plotData}
             setData={setPlotData}
             className={styles.plot_data}
